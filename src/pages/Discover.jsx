@@ -5,10 +5,10 @@ import { useGetTopChartsQuery } from "../redux/services/shazamCore";
 
 const Discover = () => {
   const dispatch = useDispatch();
+  const generTitle = "Pop";
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetTopChartsQuery();
   console.log(data);
-  const generTitle = "Pop";
 
   if (isFetching) {
     return <Loader title={"songs are loading ..."} />;
