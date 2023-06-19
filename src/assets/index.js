@@ -1,7 +1,4 @@
-import loader from './loader.svg';
-import logo from './logo.svg';
+import loader from "./loader.svg";
+import SpotifyIcon from "./SpotifyIcon.svg";
 
-export {
-  logo,
-  loader,
-};
+export { loader, SpotifyIcon };
