@@ -51,7 +51,7 @@ const TopPlay = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data } = useGetTopChartsQuery();
   const divRef = useRef(null);
-  const topPlays = data?.tracks.slice(0, 5);
+  const topPlays = data?.tracks.slice(0, 7);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -81,6 +81,7 @@ const TopPlay = () => {
         <div className="mt-4 flex flex-col gap-1">
           {topPlays?.map((song, i) => (
             <TopChartCard
+              key={song.key}
               activeSong={activeSong}
               isPlaying={isPlaying}
               song={song}
@@ -111,7 +112,7 @@ const TopPlay = () => {
           {topPlays?.map((song, i) => (
             <SwiperSlide
               key={song?.key}
-              style={{ width: "25%", height: "auto" }}
+              style={{ width: "15%", height: "auto" }}
               className="shadow-lg rounded-full animate-slideright"
             >
               <Link to={`/artists/${song?.artists[0].adamid}`}>
