@@ -51,7 +51,6 @@ const TopPlay = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data } = useGetTopChartsQuery();
   const divRef = useRef(null);
-  console.log(data);
   const topPlays = data?.tracks.slice(0, 5);
 
   const handlePauseClick = () => {
