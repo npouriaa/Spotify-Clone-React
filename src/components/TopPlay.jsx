@@ -8,12 +8,40 @@ import { playPause, setActiveSong } from "../redux/features/playerSlice";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
 import "swiper/css";
 import "swiper/css/free-mode";
-import Loader from "./Loader";
 
-const TopChartCard = ({ song }) => {
+const TopChartCard = ({
+  song,
+  i,
+  activeSong,
+  isPlaying,
+  handlePauseClick,
+  handlePlayClick,
+}) => {
   return (
     <div className="w-full flex flex-row items-center hover:bg-[#4c426e] p-4 rounded-lg cursor-pointer mb-2">
-      {song.title}
+      <h3 className="font-bold text-base text-white mr-3">{i + 1}</h3>
+      <div className="flex-1 flex flex-row justify-between items-center">
+        <img
+          className="w-20 h-20 rounded-lg "
+          src={song?.images?.coverart}
+          alt={song?.title}
+        />
+        <div className="flex flex-1 flex-col justify-center mx-3">
+          <Link to={`/songs/${song.key}`}>
+            <p className="text-base font-bold text-white ">{song?.title}</p>
+          </Link>
+          <Link to={`/artists/${song.artists[0].adamid}`}>
+            <p className="text-base mt-1 text-gray-400 ">{song?.subtitle}</p>
+          </Link>
+        </div>
+      </div>
+      <PlayPause
+        activeSong={activeSong}
+        song={song}
+        isPlaying={isPlaying}
+        handlePause={handlePauseClick}
+        handlePlay={handlePlayClick}
+      />
     </div>
   );
 };
@@ -30,7 +58,7 @@ const TopPlay = () => {
     dispatch(playPause(false));
   };
 
-  const handlePlayClick = () => {
+  const handlePlayClick = (song, i) => {
     dispatch(setActiveSong({ song, data, i }));
     dispatch(playPause(true));
   };
@@ -53,7 +81,14 @@ const TopPlay = () => {
         </div>
         <div className="mt-4 flex flex-col gap-1">
           {topPlays?.map((song, i) => (
-            <TopChartCard song={song} />
+            <TopChartCard
+              activeSong={activeSong}
+              isPlaying={isPlaying}
+              song={song}
+              i={i}
+              handlePauseClick={handlePauseClick}
+              handlePlayClick={() => handlePlayClick(song, i)}
+            />
           ))}
         </div>
       </div>
