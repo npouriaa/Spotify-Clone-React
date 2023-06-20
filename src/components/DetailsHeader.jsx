@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 
 const DetailsHeader = ({ artistId, songData, artistData }) => {
-  const artist = artistData?.artists[artistId]?.attributes;
+  const artist = artistData?.data[0].attributes;
+
   return (
     <div className="mt-4 relative w-full flex flex-col">
       <div className="w-full bg-gradient-to-l from-transparent to-black sm:h-48 xl:h-28">
         <div className="absolute inset-0 flex items-center">
           <img
-            className="sm:w-48 w-28 sm:h-48 xl:h-28 object-contain shadow-xl shadow-black"
+            className="sm:w-48 w-28 sm:h-48 xl:h-28 object-contain"
             src={
               artistId
                 ? artist.artwork?.url
