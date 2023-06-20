@@ -11,25 +11,26 @@ const CountryTracks = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
+  const [errorAround, setErrorAround] = useState("");
 
   const getAroundYouSongs = async () => {
     const options = {
       method: "GET",
-      url: "https://shazam-core7.p.rapidapi.com/charts/get-top-songs-in-country",
-      params: { country_code: `${country}` },
+      url: "https://shazam8.p.rapidapi.com/track/top/country",
+      params: { country_code: `${country}`, limit: "4" },
       headers: {
         "X-RapidAPI-Key": "cd739a57e7mshd1618539c11c51dp1ead66jsnf377bd88928f",
-        "X-RapidAPI-Host": "shazam-core7.p.rapidapi.com",
+        "X-RapidAPI-Host": "shazam8.p.rapidapi.com",
       },
     };
 
     try {
       const response = await axios.request(options);
       console.log(response.data);
-      setData(response.daat);
+      setData(response.data);
     } catch (error) {
-      setError(error);
       console.error(error);
+      setErrorAround(error);
     } finally {
       setLoadingAround(false);
     }
@@ -43,6 +44,7 @@ const CountryTracks = () => {
       setCountry(response?.data?.location?.country);
     } catch (err) {
       console.log(err);
+      setError(error);
     } finally {
       setLoading(false);
     }
@@ -50,17 +52,36 @@ const CountryTracks = () => {
 
   useEffect(() => {
     getApi();
+    getAroundYouSongs();
   }, [country]);
 
-  if(loading || loadingAround){
-    return <Loader/>
+  if (loading || loadingAround) {
+    return <Loader />;
   }
 
-  if(error){
-
+  if (error || errorAround) {
+    return <Error />;
   }
 
-  return <div className=""></div>;
+  return (
+    <div className="flex flex-col">
+      <h2 className="font-bold text-3xl text-white text-left mt-4 mb-10">
+        Around You : {country}
+      </h2>
+      <div className="flex flex-wrap sm:justify-start xl:justify-center gap-8">
+        {data?.tracks.map((song, i) => (
+          <SongCard
+            key={song.key}
+            song={song}
+            isPlaying={isPlaying}
+            activeSong={activeSong}
+            i={i}
+            data={data}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default CountryTracks;
