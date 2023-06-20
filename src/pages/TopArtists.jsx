@@ -16,7 +16,7 @@ const TopArtists = () => {
   return (
     <div className="flex flex-col">
       <h2 className="font-bold text-xl text-white text-left mt-4 mb-10">
-        Top Charts
+        Top Artists
       </h2>
       <div className="flex flex-wrap sm:justify-start xl:justify-center gap-8">
         {data?.tracks.map((track) => (

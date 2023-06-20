@@ -10,6 +10,8 @@ const ArtistDetails = () => {
   const { id: artistId } = useParams();
   const { data, isFetching, error } = useGetArtistDetailsQuery({ artistId });
 
+  console.log(data)
+
   const handlePauseClick = () => {
     dispatch(playPause(false));
   };
