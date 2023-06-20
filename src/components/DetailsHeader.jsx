@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 
 const DetailsHeader = ({ artistId, songData, artistData }) => {
   const artist = artistData?.data[0]?.attributes;
-  console.log(artistData)
 
   return (
     <div className="mt-4 relative w-full flex flex-col">
-      <div className="w-full bg-gradient-to-l from-transparent to-black sm:h-48 xl:h-28">
+      <div className="mb-10">
         <div className="absolute inset-0 flex items-center">
           <img
             className="sm:w-48 w-28 sm:h-48 xl:h-28 object-contain"

@@ -18,7 +18,7 @@ const TopChartCard = ({
   handlePlayClick,
 }) => {
   return (
-    <div className="w-full flex flex-row items-center hover:bg-[#4c426e] p-4 rounded-lg cursor-pointer mb-2">
+    <div className="w-full flex flex-row items-center hover:bg-[#1A1A1A] p-4 rounded-lg cursor-pointer mb-2">
       <h3 className="font-bold text-base text-white mr-3">{i + 1}</h3>
       <div className="flex-1 flex flex-row justify-between items-center">
         <img
@@ -28,10 +28,18 @@ const TopChartCard = ({
         />
         <div className="flex flex-1 flex-col justify-center mx-3">
           <Link to={`/songs/${song.key}`}>
-            <p className="text-base font-bold text-white ">{song?.title}</p>
+            <div className="overflow-hidden w-40">
+              <p
+                className={`text-sm font-bold text-white ${
+                  song?.title.length > 20 ? "animate-custom" : ""
+                }`}
+              >
+                {song?.title}
+              </p>
+            </div>
           </Link>
           <Link to={`/artists/${song.artists[0].adamid}`}>
-            <p className="text-base mt-1 text-gray-400 ">{song?.subtitle}</p>
+            <p className="text-sm mt-1 text-gray-400 ">{song?.subtitle}</p>
           </Link>
         </div>
       </div>
@@ -68,14 +76,14 @@ const TopPlay = () => {
 
   return (
     <div
-      className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[500px] max-w-full flex flex-col"
+      className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[400px] max-w-full flex flex-col"
       ref={divRef}
     >
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
-          <h2 className="text-white text-2xl font-bold">Top Charts</h2>
+          <h2 className="text-white text-xl font-bold">Top Charts</h2>
           <Link to="/top-charts">
-            <p className="text-gray-300 text-base cursor-pointer">see more</p>
+            <p className="text-gray-300 text-sm cursor-pointer">see more</p>
           </Link>
         </div>
         <div className="mt-4 flex flex-col gap-1">
@@ -107,12 +115,12 @@ const TopPlay = () => {
           centeredSlides
           centeredSlidesBounds
           modules={[FreeMode]}
-          className="mt-4"
+          className="mt-4 mb-10"
         >
           {topPlays?.map((song, i) => (
             <SwiperSlide
               key={song?.key}
-              style={{ width: "15%", height: "auto" }}
+              style={{ width: "20%", height: "auto" }}
               className="shadow-lg rounded-full animate-slideright"
             >
               <Link to={`/artists/${song?.artists[0].adamid}`}>

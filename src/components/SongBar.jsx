@@ -15,7 +15,7 @@ const SongBar = ({
   console.log(song);
   return (
     <div
-      className={`w-full flex flex-row items-center hover:bg-[#4c426e] ${
+      className={`w-full flex flex-row items-center hover:bg-[#1A1A1A] ${
         activeSong?.title === song?.title ? "bg-[#4c426e]" : "bg-transparent"
       } py-2 p-4 rounded-lg cursor-pointer mb-2`}
     >
