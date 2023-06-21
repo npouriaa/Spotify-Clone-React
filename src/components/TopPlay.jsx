@@ -26,12 +26,12 @@ const TopChartCard = ({
           src={song?.images?.coverart}
           alt={song?.title}
         />
-        <div className="flex flex-1 flex-col justify-center mx-3">
+        <div className="flex overflow-hidden flex-1 flex-col justify-center mx-3">
           <Link to={`/songs/${song.key}`}>
             <div className="overflow-hidden w-40">
               <p
                 className={`text-sm font-bold text-white ${
-                  song?.title.length > 20 ? "animate-custom" : ""
+                  song?.title.length > 21 ? "animate-custom" : ""
                 }`}
               >
                 {song?.title}
