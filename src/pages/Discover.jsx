@@ -3,16 +3,15 @@ import { useSelector } from "react-redux";
 import { Error, Loader, SongCard } from "../components";
 import { genres } from "../assets/constants";
 import { useEffect, useState } from "react";
+import useAxios from "../components/CustomHooks/useAxios";
 
 const Discover = () => {
   const [genreName, setGenreName] = useState("pop");
   const [genreData, setGenreData] = useState([]);
   const [genreDataLoading, setGenreDataLoading] = useState(false);
   const [genreDataError, setGenreDataError] = useState("");
-
-  const { activeSong, isPlaying } = useSelector(
-    (state) => state.player
-  );
+  
+  const { activeSong, isPlaying } = useSelector((state) => state.player);
 
   const GetByGenre = async () => {
     const options = {
@@ -29,7 +28,6 @@ const Discover = () => {
     try {
       const response = await axios.request(options);
       setGenreData(response.data?.tracks);
-      console.log(response.data.tracks);
     } catch (error) {
       console.error(error);
       setGenreDataError(error);

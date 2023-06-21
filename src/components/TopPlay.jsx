@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper";
 import PlayPause from "./PlayPause";
 import { playPause, setActiveSong } from "../redux/features/playerSlice";
-import { useGetTopChartsQuery } from "../redux/services/shazamCore";
 import "swiper/css";
 import "swiper/css/free-mode";
+import useAxios from "./CustomHooks/useAxios";
+import Loader from "./Loader";
 
 const TopChartCard = ({
   song,
@@ -57,7 +58,7 @@ const TopChartCard = ({
 const TopPlay = () => {
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const { data } = useGetTopChartsQuery();
+  const { data, loading, error } = useAxios("charts/track");
   const divRef = useRef(null);
   const topPlays = data?.tracks.slice(0, 7);
 
@@ -71,8 +72,16 @@ const TopPlay = () => {
   };
 
   useEffect(() => {
-    divRef.current.scrollIntoView({ behavior: "smooth" });
+    divRef?.current?.scrollIntoView({ behavior: "smooth" });
   });
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (error) {
+    return <Error />;
+  }
 
   return (
     <div

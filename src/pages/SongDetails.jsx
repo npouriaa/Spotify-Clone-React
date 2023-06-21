@@ -2,11 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { DetailsHeader, Error, Loader, RelatedSongs } from "../components";
 import { setActiveSong, playPause } from "../redux/features/playerSlice";
-import {
-  useGetRelatedSongsQuery,
-  useGetSongDetailsQuery,
-} from "../redux/services/shazamCore";
-import PlayPause from "../components/PlayPause";
+import useAxios from "../components/CustomHooks/useAxios";
 
 const SongDetails = () => {
   const dispatch = useDispatch();
@@ -16,12 +12,15 @@ const SongDetails = () => {
     data: relatedSongsData,
     isFetching: isFetchingRelatedSongs,
     error: relatedSongsError,
-  } = useGetRelatedSongsQuery({ songid });
+  } = useAxios('songs/list-recommendations' , { key: songid });
+
   const {
     data: songDetailsData,
-    isFetching: isFetchingSongDetails,
-    error: errorSongDetails,
-  } = useGetSongDetailsQuery({ songid });
+    isFetching : isFetchingSongDetails,
+    error : errorSongDetails,
+  } = useAxios("songs/get-details", { key: songid });
+
+  console.log(songDetailsData);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));

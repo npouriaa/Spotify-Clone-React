@@ -1,11 +1,10 @@
 import { ArtistCard, Error, Loader, SongCard } from "../components";
-import { useGetTopChartsQuery } from "../redux/services/shazamCore";
+import useAxios from "../components/CustomHooks/useAxios";
 
 const TopArtists = () => {
-  const { data, isFetching, error } = useGetTopChartsQuery();
-  console.log(data);
+  const { data, loading, error } = useAxios('charts/track');
 
-  if (isFetching) {
+  if (loading) {
     return <Loader />;
   }
 

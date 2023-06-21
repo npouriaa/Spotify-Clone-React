@@ -11,7 +11,7 @@ const DetailsHeader = ({ artistId, songData, artistData }) => {
             className="sm:w-48 w-28 sm:h-48 xl:h-28 object-contain"
             src={
               artistId
-                ? artist.artwork?.url
+                ? artist?.artwork?.url
                     .replace("{w}", "500")
                     .replace("{h}", "500")
                 : songData?.images?.coverart
