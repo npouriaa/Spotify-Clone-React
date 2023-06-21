@@ -25,16 +25,18 @@ const Search = () => {
         Showing Results for : <span className="font-black">{searchTerm}</span>
       </h2>
       <div className="flex flex-wrap sm:justify-start xl:justify-center gap-8">
-        {songs.map((song, i) => (
-          <SongCard
-            key={song.key}
-            song={song}
-            isPlaying={isPlaying}
-            activeSong={activeSong}
-            i={i}
-            data={data}
-          />
-        ))}
+        {songs
+          ? songs?.map((song, i) => (
+              <SongCard
+                key={song.key}
+                song={song}
+                isPlaying={isPlaying}
+                activeSong={activeSong}
+                i={i}
+                data={data}
+              />
+            ))
+          : <p className="text-white">Nothing found...</p>}
       </div>
     </div>
   );
