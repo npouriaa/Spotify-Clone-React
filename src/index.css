@@ -54,7 +54,7 @@
 
 .animate-custom{
   white-space: nowrap;
-  animation: revealText 10s linear infinite;
+  animation: revealText 15s linear infinite;
 }
 
 @keyframes revealText {

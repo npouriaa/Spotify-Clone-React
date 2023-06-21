@@ -24,8 +24,6 @@ const RelatedSongs = ({
     return <Error />;
   }
 
-  console.log(artistId);
-
   return (
     <div className="flex flex-col">
       <h1 className="font-bold text-3xl text-white">Related Songs : </h1>
@@ -42,8 +40,13 @@ const RelatedSongs = ({
                 handlePlayClick={handlePlayClick}
               />
             ))
-          : artistRelatedSongsData?.data.map((song, i) => (
-              <SongBar artistId={artistId} key={`${song.key} - ${artistId}`} song={song} i={i} />
+          : artistRelatedSongsData?.data?.map((song, i) => (
+              <SongBar
+                artistId={artistId}
+                key={`${song.key} - ${artistId}`}
+                song={song}
+                i={i}
+              />
             ))}
       </div>
     </div>
