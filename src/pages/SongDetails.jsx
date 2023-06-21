@@ -6,6 +6,7 @@ import {
   useGetRelatedSongsQuery,
   useGetSongDetailsQuery,
 } from "../redux/services/shazamCore";
+import PlayPause from "../components/PlayPause";
 
 const SongDetails = () => {
   const dispatch = useDispatch();
