@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 const Searchbar = () => {
-  const navigate = useNavigate();
   const [searchTerms, setSerachTerms] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -11,15 +11,19 @@ const Searchbar = () => {
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit(e)} autoComplete="off" className="p-2 text-gray-300">
+    <form
+      onSubmit={(e) => handleSubmit(e)}
+      autoComplete="off"
+      className="p-2 text-gray-300"
+    >
       <label htmlFor="search-filed" className="sr-only">
         Search all songs
       </label>
       <div className="flex flex-row justify-start items-center">
         <FiSearch className="w-5 h-5 ml-4" />
         <input
-        value={searchTerms}
-        onChange={(e) => setSerachTerms(e.target.value)}
+          value={searchTerms}
+          onChange={(e) => setSerachTerms(e.target.value)}
           type="text"
           name="search-filed"
           id="search-filed"

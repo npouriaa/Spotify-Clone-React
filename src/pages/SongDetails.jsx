@@ -2,8 +2,6 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { DetailsHeader, Error, Loader, RelatedSongs } from "../components";
 import { setActiveSong, playPause } from "../redux/features/playerSlice";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import {
   useGetRelatedSongsQuery,
   useGetSongDetailsQuery,
@@ -33,7 +31,10 @@ const SongDetails = () => {
     dispatch(playPause(true));
   };
 
-  console.log(songDetailsData);
+  const hasPersianChars = (text) => {
+    const persianRegex = /[\u0600-\u06FF]/;
+    return persianRegex.test(text);
+  };
 
   if (isFetchingSongDetails || isFetchingRelatedSongs) {
     return <Loader />;
@@ -50,8 +51,16 @@ const SongDetails = () => {
         <h2 className="text-white text-3xl font-bold">Lyrics :</h2>
         <div className="mt-5 text-gray-400">
           {songDetailsData?.sections[1].type === "LYRICS"
-            ? songDetailsData?.sections[1].text.map((line, i) => <p key={i}>{line}</p>)
-            : "Sorry , no lyrics found"}
+            ? songDetailsData?.sections[1].text.map((line, i) =>
+                !hasPersianChars(line) ? (
+                  <p key={i}>{line}</p>
+                ) : (
+                  <p className="persian-font" key={i}>
+                    {line}
+                  </p>
+                )
+              )
+            : "Sorry , No lyrics found"}
         </div>
       </div>
       <RelatedSongs
