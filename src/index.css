@@ -19,14 +19,6 @@
   font-family: "iran-sans" !important;
 }
 
-.active {
-  @apply text-[#1FDF64];
-}
-
-.active svg {
-  @apply text-[#1FDF64];
-}
-
 .bar:nth-child(2) {
   animation-delay: 0.2s;
 }
