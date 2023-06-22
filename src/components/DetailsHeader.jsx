@@ -1,25 +1,19 @@
 import { Link } from "react-router-dom";
-import PlayPause from "./PlayPause";
 
 const DetailsHeader = ({
   artistId,
   songData,
   artistData,
-  handlePauseClick,
-  handlePlayClick,
-  activeSong,
-  isPlaying,
 }) => {
-  const artist = artistData?.data[0]?.attributes;
 
-  
+  const artist = artistData?.data[0]?.attributes;
 
   return (
     <div className="mt-4 sm:h-48 xl:h-28 relative w-3/4 flex flex-col">
       <div className="mb-10">
         <div className="absolute inset-0 flex items-center">
           <img
-            className="sm:w-48 w-28 sm:h-48 xl:h-28 object-contain"
+            className="w-28 xl:h-28 object-contain"
             src={
               artistId
                 ? artist?.artwork?.url

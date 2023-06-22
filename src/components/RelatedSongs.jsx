@@ -26,7 +26,7 @@ const RelatedSongs = ({
 
   return (
     <div className="flex flex-col">
-      <h1 className="font-bold mt-2 text-2xl text-white">Related Songs : </h1>
+      <h1 className="font-bold mt-16 xl:mt-6 text-xl text-white">Related Songs : </h1>
       <div className="mt-6 w-full flex flex-col">
         {!artistId ? (
           data?.tracks ? (
