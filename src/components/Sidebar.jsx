@@ -35,7 +35,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#121212]">
+      <div className=" md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#121212]">
         <img
           className="w-full h-16 object-contain"
           src={SpotifyLogo}
@@ -43,7 +43,7 @@ const Sidebar = () => {
         />
         <NavLinks />
       </div>
-      <div className="absolute md:hidden block top-6 right-3">
+      <div className="absolute mt-20 md:hidden block top-6 right-3">
         {mobileMenuOpen ? (
           <RiCloseLine
             onClick={() => setMobileMenuOpen(false)}
