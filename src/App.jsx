@@ -11,15 +11,22 @@ import {
   SongDetails,
   TopCharts,
 } from "./pages";
+import { useEffect, useRef } from "react";
 
 const App = () => {
+  const divRef = useRef(null);
+
+  useEffect(() => {
+    divRef?.current?.scrollIntoView({ behavior: "smooth" });
+  });
+
   const { activeSong } = useSelector((state) => state.player);
   return (
-    <div className="container flex">
+    <div ref={divRef} className="container flex">
       <Sidebar />
       <div className="flex-1 flex flex-col bg-[#121212]">
         <Searchbar />
-        <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col">
+        <div className="px-6 mt-20 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col">
           <div className="flex-1 h-fit pb-40">
             <Routes>
               <Route path="/" element={<Discover />} />
@@ -37,11 +44,7 @@ const App = () => {
         </div>
       </div>
 
-      {activeSong?.title && (
-        <div className="absolute h-24 bottom-0 left-0 right-0 flex animate-slideup bg-black z-10">
-          <MusicPlayer />
-        </div>
-      )}
+      {activeSong?.title && <MusicPlayer />}
     </div>
   );
 };

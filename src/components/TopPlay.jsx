@@ -59,7 +59,6 @@ const TopPlay = () => {
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, loading, error } = useAxios("charts/track");
-  const divRef = useRef(null);
   const topPlays = data?.tracks.slice(0, 7);
 
   const handlePauseClick = () => {
@@ -71,9 +70,6 @@ const TopPlay = () => {
     dispatch(playPause(true));
   };
 
-  useEffect(() => {
-    divRef?.current?.scrollIntoView({ behavior: "smooth" });
-  });
 
   if (loading) {
     return <Loader />;
@@ -86,7 +82,6 @@ const TopPlay = () => {
   return (
     <div
       className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[400px] max-w-full flex flex-col"
-      ref={divRef}
     >
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
@@ -124,7 +119,7 @@ const TopPlay = () => {
           centeredSlides
           centeredSlidesBounds
           modules={[FreeMode]}
-          className="mt-4 mb-10"
+          className="mt-4 mb-20"
         >
           {topPlays?.map((song, i) => (
             <SwiperSlide

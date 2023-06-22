@@ -58,7 +58,7 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className="fixed bottom-0 h-20 w-full">
+    <div className="fixed bottom-0 z-10 h-20 w-full">
       <div className="relative h-full bg-black sm:px-12 px-8 w-full flex items-center justify-between">
         <Track
           isPlaying={isPlaying}
