@@ -8,7 +8,6 @@ const SongDetails = () => {
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { songid } = useParams();
-  console.log(songid);
   const {
     data: relatedSongsData,
     isFetching: isFetchingRelatedSongs,
@@ -20,6 +19,8 @@ const SongDetails = () => {
     isFetching: isFetchingSongDetails,
     error: errorSongDetails,
   } = useAxios("songs/get-details", { key: songid }, songid);
+
+  console.log(songDetailsData);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -45,7 +46,7 @@ const SongDetails = () => {
 
   return (
     <div className="flex flex-col">
-      <DetailsHeader artistId="" songData={songDetailsData} />
+      <DetailsHeader songData={songDetailsData} />
       <div className="mb-10 mt-14">
         <h2 className="text-white text-3xl font-bold">Lyrics :</h2>
         <div className="mt-5 text-gray-400">

@@ -3,12 +3,12 @@ import Loader from "./Loader";
 import SongBar from "./SongBar";
 
 const RelatedSongs = ({
-  activeSong,
-  isPlaying,
   data,
   handlePlayClick,
   handlePauseClick,
   artistId,
+  activeSong,
+  isPlaying,
 }) => {
   const {
     data: artistRelatedSongsData,
@@ -35,8 +35,6 @@ const RelatedSongs = ({
                 key={`${song.key}-${artistId}`}
                 song={song}
                 i={i}
-                activeSong={activeSong}
-                isPlaying={isPlaying}
                 handlePauseClick={handlePauseClick}
                 handlePlayClick={handlePlayClick}
               />
@@ -51,6 +49,10 @@ const RelatedSongs = ({
               key={`${song.key} - ${artistId}`}
               song={song}
               i={i}
+              handlePauseClick={handlePauseClick}
+              handlePlayClick={handlePlayClick}
+              activeSong={activeSong}
+              isPlaying={isPlaying}
             />
           ))
         )}

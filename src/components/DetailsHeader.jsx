@@ -1,10 +1,21 @@
 import { Link } from "react-router-dom";
+import PlayPause from "./PlayPause";
 
-const DetailsHeader = ({ artistId, songData, artistData }) => {
+const DetailsHeader = ({
+  artistId,
+  songData,
+  artistData,
+  handlePauseClick,
+  handlePlayClick,
+  activeSong,
+  isPlaying,
+}) => {
   const artist = artistData?.data[0]?.attributes;
 
+  
+
   return (
-    <div className="mt-4 relative w-3/4 flex flex-col">
+    <div className="mt-4 sm:h-48 xl:h-28 relative w-3/4 flex flex-col">
       <div className="mb-10">
         <div className="absolute inset-0 flex items-center">
           <img
@@ -35,7 +46,6 @@ const DetailsHeader = ({ artistId, songData, artistData }) => {
           </div>
         </div>
       </div>
-      <div className="w-full sm:h-48 xl:h-28"></div>
     </div>
   );
 };

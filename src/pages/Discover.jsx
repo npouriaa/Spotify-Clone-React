@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import { Error, Loader, SongCard } from "../components";
 import { genres } from "../assets/constants";
 import { useEffect, useState } from "react";
-import useAxios from "../components/CustomHooks/useAxios";
 
 const Discover = () => {
   const [genreName, setGenreName] = useState("pop");
@@ -11,7 +10,6 @@ const Discover = () => {
   const [genreDataLoading, setGenreDataLoading] = useState(false);
   const [genreDataError, setGenreDataError] = useState("");
   
-  const { activeSong, isPlaying } = useSelector((state) => state.player);
 
   const GetByGenre = async () => {
     const options = {
@@ -61,19 +59,16 @@ const Discover = () => {
           value={genreName || "POP"}
           className="bg-black text-gray-300 rounded-lg p-3 text-sm outline-none sm:mt-0 mt-5 cursor-pointer"
         >
-          {genres.map((genre, index) => (
+          {genres.map((genre) => (
             <option className="cursor-pointer" key={genre.value}>
               {genre.title}
             </option>
           ))}
         </select>
       </div>
-      <div className="flex flex-wrap sm:justify-start justify-center  gap-8 ">
+      <div className="flex flex-wrap sm:justify-start justify-center gap-8 ">
         {genreData?.map((song, i) => (
           <SongCard
-            ge={genreData}
-            isPlaying={isPlaying}
-            activeSong={activeSong}
             key={song.key}
             song={song}
             i={i}

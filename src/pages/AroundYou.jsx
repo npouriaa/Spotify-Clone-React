@@ -1,14 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useSelector } from "react-redux";
 import { Error, Loader, SongCard } from "../components";
 
 const CountryTracks = () => {
   const [country, setCountry] = useState("");
   const [loading, setLoading] = useState(true);
   const [loadingAround, setLoadingAround] = useState(true);
-  const { activeSong, isPlaying } = useSelector((state) => state.player);
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
   const [errorAround, setErrorAround] = useState("");
@@ -73,8 +71,6 @@ const CountryTracks = () => {
           <SongCard
             key={song.key}
             song={song}
-            isPlaying={isPlaying}
-            activeSong={activeSong}
             i={i}
             data={data}
           />
