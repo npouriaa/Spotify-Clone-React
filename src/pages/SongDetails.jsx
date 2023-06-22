@@ -20,8 +20,6 @@ const SongDetails = () => {
     error: errorSongDetails,
   } = useAxios("songs/get-details", { key: songid }, songid);
 
-  console.log(songDetailsData);
-
   const handlePauseClick = () => {
     dispatch(playPause(false));
   };

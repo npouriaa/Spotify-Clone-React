@@ -15,8 +15,6 @@ const ArtistDetails = () => {
     artistId
   );
 
-  console.log(data);
-
   const handlePauseClick = () => {
     dispatch(playPause(false));
   };

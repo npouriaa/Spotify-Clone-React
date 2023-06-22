@@ -21,7 +21,6 @@ const useAxios = (url, cParams, dependency) => {
     try {
       const response = await axios.request(options);
       setData(response.data);
-      console.log(response.data);
     } catch (err) {
       console.log(err);
       setError(err);

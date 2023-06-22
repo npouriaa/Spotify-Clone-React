@@ -24,10 +24,8 @@ const CountryTracks = () => {
 
     try {
       const response = await axios.request(options);
-      console.log(response.data);
       setData(response.data);
     } catch (error) {
-      console.error(error);
       setErrorAround(error);
     } finally {
       setLoadingAround(false);
@@ -41,7 +39,6 @@ const CountryTracks = () => {
       );
       setCountry(response?.data?.location?.country);
     } catch (err) {
-      console.log(err);
       setError(error);
     } finally {
       setLoading(false);
