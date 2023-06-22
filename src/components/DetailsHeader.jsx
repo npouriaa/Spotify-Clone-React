@@ -9,7 +9,7 @@ const DetailsHeader = ({
   const artist = artistData?.data[0]?.attributes;
 
   return (
-    <div className="mt-4 sm:h-48 xl:h-28 relative w-3/4 flex flex-col">
+    <div className="xl:mt-4 mt-16 sm:h-48 xl:h-28 relative w-3/4 flex flex-col">
       <div className="mb-10">
         <div className="absolute inset-0 flex items-center">
           <img

@@ -66,14 +66,9 @@ const CountryTracks = () => {
       <h2 className="font-bold text-xl text-white text-left mt-4 mb-10">
         Around You : {country}
       </h2>
-      <div className="flex flex-wrap sm:justify-start xl:justify-center gap-8">
+      <div className="flex flex-wrap justify-center gap-8">
         {data?.tracks.map((song, i) => (
-          <SongCard
-            key={song.key}
-            song={song}
-            i={i}
-            data={data}
-          />
+          <SongCard key={song.key} song={song} i={i} data={data} />
         ))}
       </div>
     </div>
