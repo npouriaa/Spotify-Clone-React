@@ -1,4 +1,4 @@
-import { useGetArtistRelatedSongsQuery } from "../redux/services/shazamCore";
+import useAxios from "./CustomHooks/useAxios";
 import Loader from "./Loader";
 import SongBar from "./SongBar";
 
@@ -12,15 +12,15 @@ const RelatedSongs = ({
 }) => {
   const {
     data: artistRelatedSongsData,
-    isFetching: isFetchingartistRelatedSongs,
-    error: errorartistRelatedSongs,
-  } = useGetArtistRelatedSongsQuery({ artistId });
+    loading,
+    error,
+  } = useAxios("artists/get-top-songs", { id: artistId }, artistId);
 
-  if (isFetchingartistRelatedSongs) {
+  if (loading) {
     return <Loader />;
   }
 
-  if (errorartistRelatedSongs) {
+  if (error) {
     return <Error />;
   }
 

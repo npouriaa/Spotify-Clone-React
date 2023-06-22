@@ -1,20 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useAxios = (url, cParams , dependency) => {
+const useAxios = (url, cParams, dependency) => {
   const [data, setData] = useState(undefined);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-    const options = {
-      method: "GET",
-      url: `https://shazam.p.rapidapi.com/${url}`,
-      params: cParams,
-      headers: {
-        "X-RapidAPI-Key": "0d8112b4cdmshf2fb8297ca27afbp1b352ajsn5b79f73763cb",
-        "X-RapidAPI-Host": "shazam.p.rapidapi.com",
-      },
-    };
+  const options = {
+    method: "GET",
+    url: `https://shazam.p.rapidapi.com/${url}`,
+    params: cParams,
+    headers: {
+      "X-RapidAPI-Key": "a30a2e9623msh38ad1986d163540p16d00bjsn89a59d76926f",
+      "X-RapidAPI-Host": "shazam.p.rapidapi.com",
+    },
+  };
 
   const getData = async () => {
     setLoading(true);
@@ -25,8 +25,9 @@ const useAxios = (url, cParams , dependency) => {
     } catch (err) {
       console.log(err);
       setError(err);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   useEffect(() => {

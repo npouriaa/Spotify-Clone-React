@@ -8,19 +8,18 @@ const SongDetails = () => {
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { songid } = useParams();
+  console.log(songid);
   const {
     data: relatedSongsData,
     isFetching: isFetchingRelatedSongs,
     error: relatedSongsError,
-  } = useAxios('songs/list-recommendations' , { key: songid });
+  } = useAxios("songs/list-recommendations", { key: songid }, songid);
 
   const {
     data: songDetailsData,
-    isFetching : isFetchingSongDetails,
-    error : errorSongDetails,
-  } = useAxios("songs/get-details", { key: songid });
-
-  console.log(songDetailsData);
+    isFetching: isFetchingSongDetails,
+    error: errorSongDetails,
+  } = useAxios("songs/get-details", { key: songid }, songid);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
