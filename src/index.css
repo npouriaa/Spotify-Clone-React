@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,10 +7,15 @@
   src: url(./fonts/IRANSansWeb_Bold.ttf);
 }
 
+@font-face {
+  font-family: "circular";
+  src: url(./fonts/CircularStd-Medium.otf);
+}
+
 * {
   padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "circular";
   box-sizing: border-box;
 }
 

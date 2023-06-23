@@ -31,7 +31,7 @@ const TopChartCard = ({
           <Link to={`/songs/${song.key}`}>
             <div className="overflow-hidden w-40">
               <p
-                className={`text-sm font-bold text-white ${
+                className={`text-md font-bold text-white ${
                   song?.title.length > 21 ? "animate-custom" : ""
                 }`}
               >

@@ -28,7 +28,7 @@ const Searchbar = () => {
           name="search-filed"
           id="search-filed"
           placeholder="search"
-          className="flex-1 bg-transparent border-none outline-none placeholder-gray-500 text-xs lg:text-base text-white p-4"
+          className="flex-1 bg-transparent border-none outline-none placeholder-gray-500 text-sm text-white p-4"
         />
       </div>
     </form>
