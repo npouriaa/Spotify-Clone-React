@@ -15,7 +15,7 @@ const SongBar = ({
   return (
     <div
       className={`w-full flex flex-row items-center hover:bg-[#1A1A1A] ${
-        activeSong?.title === song?.title ? "bg-[#4c426e]" : "bg-transparent"
+        activeSong?.title === song?.title ? "bg-[#242424]" : "bg-transparent"
       } py-2 p-4 rounded-lg cursor-pointer mb-2`}
     >
       <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
@@ -34,10 +34,10 @@ const SongBar = ({
         <div className="flex-1 flex flex-col justify-center mx-3">
           {!artistId ? (
             <Link to={`/songs/${song.key}`}>
-              <p className="text-sm font-bold text-white">{song?.title}</p>
+              <p className="lg:text-sm text-xs font-bold text-white">{song?.title}</p>
             </Link>
           ) : (
-            <p className="text-sm font-bold text-white">
+            <p className="lg:text-sm text-xs font-bold text-white">
               {song?.attributes?.name}
             </p>
           )}

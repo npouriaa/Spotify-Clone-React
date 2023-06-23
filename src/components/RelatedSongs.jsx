@@ -40,7 +40,7 @@ const RelatedSongs = ({
               />
             ))
           ) : (
-            <p className="text-gray-400">sorry , no related songs found</p>
+            <p className="text-gray-400">Sorry , No related songs found</p>
           )
         ) : (
           artistRelatedSongsData?.data?.map((song, i) => (

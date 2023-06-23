@@ -11,7 +11,7 @@ const useAxios = (url, cParams, dependency) => {
     url: `https://shazam.p.rapidapi.com/${url}`,
     params: cParams,
     headers: {
-      "X-RapidAPI-Key": "6042030023msh33b7e8581423f38p1b3cd7jsn81b81f32eb90",
+      "X-RapidAPI-Key": "2a7bdb3e88mshac678b437d18ec0p175d15jsn57aaa353094e",
       "X-RapidAPI-Host": "shazam.p.rapidapi.com",
     },
   };
@@ -24,9 +24,8 @@ const useAxios = (url, cParams, dependency) => {
     } catch (err) {
       console.log(err);
       setError(err);
-    } finally {
-      setLoading(false);
     }
+    setLoading(false);
   };
 
   useEffect(() => {

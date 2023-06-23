@@ -23,7 +23,7 @@ const TopChartCard = ({
       <h3 className="font-bold text-base text-white mr-3">{i + 1}</h3>
       <div className="flex-1 flex flex-row justify-between items-center">
         <img
-          className="w-20 h-20 rounded-lg "
+          className="w-16 h-16 lg:w-20 rounded-lg "
           src={song?.images?.coverart}
           alt={song?.title}
         />
@@ -85,7 +85,7 @@ const TopPlay = () => {
     >
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
-          <h2 className="text-white text-xl font-bold">Top Charts</h2>
+          <h2 className="text-white text-lg lg:text-xl font-bold">Top Charts</h2>
           <Link to="/top-charts">
             <p className="text-gray-300 text-sm cursor-pointer">see more</p>
           </Link>
@@ -124,7 +124,7 @@ const TopPlay = () => {
           {topPlays?.map((song, i) => (
             <SwiperSlide
               key={song?.key}
-              style={{ width: "20%", height: "auto" }}
+              style={{ width: "16%", height: "auto" }}
               className="shadow-lg rounded-full animate-slideright"
             >
               <Link to={`/artists/${song?.artists[0].adamid}`}>

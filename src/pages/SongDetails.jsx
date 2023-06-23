@@ -5,9 +5,9 @@ import { setActiveSong, playPause } from "../redux/features/playerSlice";
 import useAxios from "../components/CustomHooks/useAxios";
 
 const SongDetails = () => {
+  const { songid } = useParams();
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const { songid } = useParams();
   const {
     data: relatedSongsData,
     isFetching: isFetchingRelatedSongs,
@@ -43,10 +43,10 @@ const SongDetails = () => {
   }
 
   return (
-    <div className="flex flex-col mt-20 lg:mt-0">
+    <div className="flex flex-col mt-4 lg:mt-0">
       <DetailsHeader songData={songDetailsData} />
       <div className="mb-10 mt-14">
-        <h2 className="text-white text-3xl font-bold">Lyrics :</h2>
+        <h2 className="text-white text-2xl font-bold">Lyrics :</h2>
         <div className="mt-5 text-gray-400">
           {songDetailsData?.sections[1].type === "LYRICS"
             ? songDetailsData?.sections[1].text.map((line, i) =>

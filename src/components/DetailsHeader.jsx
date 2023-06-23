@@ -9,7 +9,7 @@ const DetailsHeader = ({
   const artist = artistData?.data[0]?.attributes;
 
   return (
-    <div className="xl:mt-4 mt-16 sm:h-48 xl:h-28 relative w-3/4 flex flex-col">
+    <div className="xl:mt-4 mt-10 sm:h-48 xl:h-28 relative w-3/4 flex flex-col">
       <div className="mb-10">
         <div className="absolute inset-0 flex items-center">
           <img
@@ -24,7 +24,7 @@ const DetailsHeader = ({
             alt="art"
           />
           <div className="ml-5">
-            <p className="text-white font-bold sm:text-xl xl:text-base">
+            <p className="text-white w-40 lg:w-56 font-bold text-sm">
               {artistId ? artist?.name : songData?.title}
             </p>
             {!artistId && (
