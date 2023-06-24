@@ -35,7 +35,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className=" md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#121212]">
+      <div className="h-screen md:flex hidden flex-col w-[245px] py-10 px-4 bg-[#121212]">
         <img
           className="w-full  h-16 object-contain"
           src={SpotifyLogo}

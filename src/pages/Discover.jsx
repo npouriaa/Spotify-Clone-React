@@ -17,7 +17,7 @@ const Discover = () => {
       url: "https://shazam-core7.p.rapidapi.com/charts/get-top-songs-in_world_by_genre",
       params: { genre: genreName || "pop" },
       headers: {
-        "X-RapidAPI-Key": "cd739a57e7mshd1618539c11c51dp1ead66jsnf377bd88928f",
+        "X-RapidAPI-Key": "fda991fd6bmshf3630f1b8c6b6b2p16d851jsnc77b4c165036",
         "X-RapidAPI-Host": "shazam-core7.p.rapidapi.com",
       },
     };
@@ -66,7 +66,7 @@ const Discover = () => {
           ))}
         </select>
       </div>
-      <div className="flex flex-wrap sm:justify-start justify-center gap-8 ">
+      <div className="flex flex-wrap sm:justify-start justify-center gap-6 ">
         {genreData?.map((song, i) => (
           <SongCard
             key={song.key}
