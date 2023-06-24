@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { DetailsHeader, Error, Loader, RelatedSongs } from "../components";
 import { setActiveSong, playPause } from "../redux/features/playerSlice";
 import useAxios from "../components/CustomHooks/useAxios";
+import PlayPause from "../components/PlayPause";
 
 const SongDetails = () => {
   const { songid } = useParams();
@@ -25,7 +26,7 @@ const SongDetails = () => {
   };
 
   const handlePlayClick = (song, i) => {
-    dispatch(setActiveSong({ song, data, i }));
+    dispatch(setActiveSong({ song, relatedSongsData, i }));
     dispatch(playPause(true));
   };
 
@@ -44,7 +45,19 @@ const SongDetails = () => {
 
   return (
     <div className="flex flex-col mt-4 lg:mt-0">
-      <DetailsHeader songData={songDetailsData} />
+      <div className="flex items-center">
+        <DetailsHeader songData={songDetailsData} />
+        {[songDetailsData].map((song, i) => (
+          <PlayPause
+            handlePause={handlePauseClick}
+            song={songDetailsData}
+            isPlaying={isPlaying}
+            activeSong={activeSong}
+            handlePlay={() => handlePlayClick(song, i)}
+            inDetailsHeader={true}
+          />
+        ))}
+      </div>
       <div className="mb-10 mt-14">
         <h2 className="text-white text-2xl font-bold">Lyrics :</h2>
         <div className="mt-5 text-gray-400">
@@ -61,13 +74,7 @@ const SongDetails = () => {
             : "Sorry , No lyrics found"}
         </div>
       </div>
-      <RelatedSongs
-        handlePauseClick={handlePauseClick}
-        handlePlayClick={handlePlayClick}
-        data={relatedSongsData}
-        isPlaying={isPlaying}
-        activeSong={activeSong}
-      />
+      <RelatedSongs data={relatedSongsData} />
     </div>
   );
 };

@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -70,7 +69,6 @@ const TopPlay = () => {
     dispatch(playPause(true));
   };
 
-
   if (loading) {
     return <Loader />;
   }
@@ -80,14 +78,14 @@ const TopPlay = () => {
   }
 
   return (
-    <div
-      className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[400px] max-w-full flex flex-col"
-    >
+    <div className="xl:ml-6 ml-0 xl:mb-0 mb-6 flex-1 xl:max-w-[400px] max-w-full flex flex-col">
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
-          <h2 className="text-white text-lg lg:text-xl font-bold">Top Charts</h2>
+          <h2 className="text-white text-lg lg:text-xl font-bold">
+            Top Charts
+          </h2>
           <Link to="/top-charts">
-            <p className="text-gray-300 text-sm cursor-pointer">see more</p>
+            <p className="text-gray-300 text-base cursor-pointer">see more</p>
           </Link>
         </div>
         <div className="mt-4 flex flex-col gap-1">
@@ -107,7 +105,9 @@ const TopPlay = () => {
 
       <div className="w-full flex flex-col mt-8">
         <div className="flex flex-row justify-between items-center">
-          <h2 className="text-white text-2xl font-bold">Top Artists</h2>
+          <h2 className="text-white text-lg lg:text-xl font-bold">
+            Top Artists
+          </h2>
           <Link to="/top-artists">
             <p className="text-gray-300 text-base cursor-pointer">see more</p>
           </Link>
