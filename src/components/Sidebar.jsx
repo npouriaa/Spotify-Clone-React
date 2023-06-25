@@ -9,6 +9,7 @@ const NavLinks = ({ handleSidebarState }) => {
   const handleClick = () => {
     handleSidebarState();
   };
+  
   return (
     <div>
       {links.map((item) => (
@@ -37,7 +38,7 @@ const Sidebar = () => {
     <>
       <div className="h-screen md:flex hidden flex-col w-[245px] py-10 px-4 bg-[#121212]">
         <img
-          className="w-full  h-16 object-contain"
+          className="w-full h-16 object-contain"
           src={SpotifyLogo}
           alt="logo"
         />

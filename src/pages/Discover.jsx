@@ -5,11 +5,10 @@ import { genres } from "../assets/constants";
 import { useEffect, useState } from "react";
 
 const Discover = () => {
-  const [genreName, setGenreName] = useState("pop");
+  const [genreName, setGenreName] = useState("Pop");
   const [genreData, setGenreData] = useState([]);
   const [genreDataLoading, setGenreDataLoading] = useState(false);
   const [genreDataError, setGenreDataError] = useState("");
-  
 
   const GetByGenre = async () => {
     const options = {
@@ -68,11 +67,7 @@ const Discover = () => {
       </div>
       <div className="flex flex-wrap sm:justify-start justify-center gap-6 ">
         {genreData?.map((song, i) => (
-          <SongCard
-            key={song.key}
-            song={song}
-            i={i}
-          />
+          <SongCard key={song.key} song={song} i={i} />
         ))}
       </div>
     </div>
