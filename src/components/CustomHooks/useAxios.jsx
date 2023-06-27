@@ -11,7 +11,7 @@ const useAxios = (url, cParams, dependency) => {
     url: `https://shazam.p.rapidapi.com/${url}`,
     params: cParams,
     headers: {
-      "X-RapidAPI-Key": "fda991fd6bmshf3630f1b8c6b6b2p16d851jsnc77b4c165036",
+      "X-RapidAPI-Key": "c281d8bb34msh16269fb4c0cee3ep1eed0bjsn133f9be26271",
       "X-RapidAPI-Host": "shazam.p.rapidapi.com",
     },
   };
