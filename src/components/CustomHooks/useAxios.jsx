@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 const useAxios = (url, cParams, dependency) => {
   const [data, setData] = useState(undefined);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState();
 
   const options = {
     method: "GET",
