@@ -15,7 +15,7 @@ const Discover = () => {
       url: "https://shazam-core7.p.rapidapi.com/charts/get-top-songs-in_world_by_genre",
       params: { genre: genreName || "pop" },
       headers: {
-        "X-RapidAPI-Key": "fda991fd6bmshf3630f1b8c6b6b2p16d851jsnc77b4c165036",
+        "X-RapidAPI-Key": "5ea2e1d844msh1cfce842e7192dep12cd96jsn75764fde1511",
         "X-RapidAPI-Host": "shazam-core7.p.rapidapi.com",
       },
     };
